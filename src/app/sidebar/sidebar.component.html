@@ -1,0 +1,13 @@
+<div id="sidebarContainer">
+  <div>
+    Channels
+    <button (click)="sendMessageToParent()">+</button>
+  </div>
+  <div *ngIf="visState | async as vis">
+  <ul>
+    <li *ngFor="let topic of vis.topicList">
+      {{topic.name}}
+    </li>
+  </ul>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+
+<!-- <ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+  </li>
+</ul> -->
+
+<app-sidebar></app-sidebar>
+
+<!-- <app-mainchat></app-mainchat> -->
+<router-outlet></router-outlet>
+
+<div *ngIf="visState | async as vis">
+<div class="addTopicPanel" *ngIf="vis.topicPanel">
+    <button class="cancelButton" (click)="closeButtonClick()" >
+      X
+    </button>
+    <div id="formContainer">
+      <div>
+        create channel
+      </div>
+      <label for="">name</label>
+      <input type="text">
+      <label for="">purpose</label>
+      <input type="text">
+      <button>cancel</button>
+      <button (click)="addTopic()">Create Channel</button>
+    </div>
+</div>
+</div>

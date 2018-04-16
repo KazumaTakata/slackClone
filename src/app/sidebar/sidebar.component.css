@@ -1,0 +1,19 @@
+#sidebarContainer{
+  position: absolute;
+  height: 100vh;
+  width: 100px;
+  background: #4d394b;
+  color: #bbb4bb;
+  font-family: 'Lato', sans-serif;
+}
+
+ul{
+  list-style-type: none;
+}
+
+button{
+  background: transparent;
+  border: none;
+  color: #bbb4bb;
+  font-size: 20px;
+}
