@@ -1,14 +1,67 @@
 #sidebarContainer{
   position: absolute;
   height: 100vh;
-  width: 100px;
+  width: 220px;
   background: #4d394b;
   color: #bbb4bb;
   font-family: 'Lato', sans-serif;
 }
+#userContainer{
+  padding: 15px;
+}
+
+#userContainer:hover{
+  background: rgb(50, 20, 17);
+}
+
+#channelContainer{
+  padding: 0px;
+}
+
+#channelHeader{
+  padding: 15px;
+}
+
+#channelHeader:hover{
+  color: white;
+}
+
+#addtopicbutton:hover{
+  color: white;
+}
+
+#sidebarContainer2{
+  margin: 0px;
+}
+#username{
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+#usercircle{
+  width: 10px;
+  height: 10px;
+  background: green;
+  border-radius: 5px;
+  margin-right: 5px;
+}
 
 ul{
   list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+li{
+  padding: 4px 15px;
+}
+
+li:hover{
+  background: rgb(50, 20, 17);
+}
+
+a{
+  text-decoration: none;
+  color: #bbb4bb;
 }
 
 button{

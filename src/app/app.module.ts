@@ -11,6 +11,7 @@ import { MainchatComponent } from './mainchat/mainchat.component'
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store'
 import { simpleReducer } from './simple.reducer';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { simpleReducer } from './simple.reducer';
     AngularFirestoreModule,
     AppRoutingModule,
     CommonModule,
-    StoreModule.forRoot({visState: simpleReducer })
+    StoreModule.forRoot({visState: simpleReducer }),
+    FormsModule
   ],
   providers: [Globals],
   bootstrap: [AppComponent]

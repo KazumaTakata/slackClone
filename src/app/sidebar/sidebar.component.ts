@@ -3,6 +3,7 @@ import { TOPICS } from "../mock-topics"
 import { Store } from '@ngrx/store';
 import { visState } from "../visState.module"
 import { Observable } from "rxjs/Observable";
+import * as Actions from "../action"
 
 interface AppState {
   visState: visState;
@@ -29,6 +30,10 @@ export class SidebarComponent implements OnInit {
 
   sendMessageToParent(){
     this.store.dispatch({type: 'OPEN'})
+  }
+
+  anchorClick(topicId){
+    this.store.dispatch(new Actions.activeTopic({topicId: topicId}))
   }
 
 }

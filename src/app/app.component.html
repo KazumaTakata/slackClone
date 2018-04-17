@@ -20,9 +20,9 @@
         create channel
       </div>
       <label for="">name</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="topicName">
       <label for="">purpose</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="topicDescription">
       <button>cancel</button>
       <button (click)="addTopic()">Create Channel</button>
     </div>

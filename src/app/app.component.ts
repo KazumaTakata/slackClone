@@ -27,6 +27,8 @@ function guid() {
 })
 export class AppComponent {
   title: string;
+  topicName: string;
+  topicDescription: string;
   visState :Observable<visState>
 
   // items: Observable<any[]>;
@@ -41,7 +43,7 @@ export class AppComponent {
   }
 
   addTopic(){
-    this.store.dispatch(new Actions.addTopic({name:"soccer", id: guid()}))
+    this.store.dispatch(new Actions.addTopic({name:this.topicName, id: guid(), description: this.topicDescription}))
   }
 
 

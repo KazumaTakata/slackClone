@@ -1,4 +1,7 @@
 export interface visState {
   topicPanel: boolean;
-  topicList: object[]
+  topicId: string;
+  topicList: any[];
+  talks: object;
+  user: object;
 }

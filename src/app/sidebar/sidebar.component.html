@@ -1,13 +1,26 @@
 <div id="sidebarContainer">
-  <div>
-    Channels
-    <button (click)="sendMessageToParent()">+</button>
-  </div>
-  <div *ngIf="visState | async as vis">
-  <ul>
-    <li *ngFor="let topic of vis.topicList">
-      {{topic.name}}
-    </li>
-  </ul>
+  <div id="sidebarContainer2">
+    <div *ngIf="visState | async as vis">
+      <div id="userContainer">
+        user
+        <div id="username">
+          <div id="usercircle"></div>
+          {{vis.user.name}}
+        </div>
+      </div>
+    </div>
+    <div id="channelContainer">
+      <div id="channelHeader">
+        Channels
+        <button id="addtopicbutton" (click)="sendMessageToParent()">+</button>
+      </div>
+      <div *ngIf="visState | async as vis">
+      <ul>
+        <li *ngFor="let topic of vis.topicList">
+          <a [routerLink]="topic.id" (click)="anchorClick(topic.id)"  routerLinkActive="active"># {{topic.name}}</a>
+        </li>
+      </ul>
+      </div>
+    </div>
   </div>
 </div>

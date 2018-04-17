@@ -1,10 +1,18 @@
 <div id=mainchatContainer>
+  <div id="chatheader" *ngIf="visState | async as vis">
+      {{topicName}}
+  </div>
+  <div *ngIf="visState | async as vis">
+    <li *ngFor="let talk of vis.talks[topicId]">
+      {{talk}}
+    </li>
+  </div>
 
 
 <div>
   <div id="chatInputContainer">
     <button>+</button>
-    <input type="text" class="chatInput">
+    <input  #box (keyup.enter)="onEnter(box.value)" type="text" class="chatInput">
   </div>
 </div>
 
