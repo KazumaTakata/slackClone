@@ -34,7 +34,7 @@ export function simpleReducer(state: visState = initState , action: Action){
     case "ADDCHAT":
       let talks = state.talks[action.payload.id]
       let obj1 = {}
-      obj1[action.payload.id] = [...talks, action.payload.talk]
+      obj1[action.payload.id] = [...talks, {talk:action.payload.talk, name: action.payload.userName}]
       return newState(state, {talks: obj1} )
     case "ACTIVETOPIC":
       return newState(state, {topicId: action.payload.topicId})

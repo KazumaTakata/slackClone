@@ -22,6 +22,7 @@ export class MainchatComponent implements OnInit {
   private sub: any;
   topicId: string;
   topicName: string;
+  userName: string;
 
   visState :Observable<visState>
 
@@ -36,12 +37,13 @@ export class MainchatComponent implements OnInit {
       if (d.topicId != ""){
           this.topicName = d.topicList.find( topic => topic.id === d.topicId).name
       }
+      this.userName = d.user.name
     })
   }
 
   onEnter(value: string) {
      console.log(value)
-     this.store.dispatch(new Actions.addChat({id: this.topicId ,talk: value}))
+     this.store.dispatch(new Actions.addChat({id: this.topicId ,talk: value, userName: this.userName}))
 
    }
 

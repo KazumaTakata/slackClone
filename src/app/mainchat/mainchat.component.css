@@ -1,6 +1,6 @@
 #mainchatContainer{
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: calc(100% - 220px);
   left: 220px;
 }
@@ -10,8 +10,55 @@
   font-size: 30px;
   color: #a0a0a2;
   border: none;
-  border-left: 3px solid #a0a0a2;
+
   outline: none;
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+li{
+  padding: 5px;
+}
+
+#mainContainer{
+  display: flex;
+  height: 100%;
+}
+
+#mainContainerContainer{
+  height: calc(100% - 85px);
+}
+
+#maincon{
+  width: 100%;
+}
+
+#main{
+  height: calc(100% - 80px);
+}
+
+#inputContainer{
+  height: 80px;
+}
+
+.chatContainer{
+  display: flex;
+}
+img{
+  height: 30px;
+  width: 30px;
+  border-radius: 3px;
+}
+
+.chatContainermain{
+  margin-left: 10px;
+}
+
+#talkUsername{
+  font-weight: 900;
 }
 
 button{
@@ -21,17 +68,41 @@ button{
   border: none;
   outline: none;
 }
+#topicTitle{
+  font-size: 20px;
+  font-weight: 900;
+}
+
+#chatheader{
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid #a0a0a2;
+}
+
+.headerButton{
+  font-size: 12px;
+}
+
+#chatheader-right{
+  margin-left: auto;
+}
 
 button:hover{
   background: #54b087;
   color: #e6e6e6;
 }
 
+.chatInput{
+  width: 90%;
+  border-left: 3px solid #a0a0a2;
+  font-size: 30px;
+}
+
 #chatInputContainer{
   display: flex;
-  margin-left: 40px;
+  margin: auto;
   width: 80%;
-  position: absolute;
+  /* position: absolute; */
   bottom: 40px;
   border: 3px solid #a0a0a2;
   border-radius: 10px;

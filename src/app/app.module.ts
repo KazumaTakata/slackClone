@@ -12,12 +12,14 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store'
 import { simpleReducer } from './simple.reducer';
 import { FormsModule } from '@angular/forms';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     MainchatComponent,
+    DetailComponent,
 
   ],
   imports: [

@@ -1,19 +1,51 @@
 <div id=mainchatContainer>
-  <div id="chatheader" *ngIf="visState | async as vis">
-      {{topicName}}
+  <div id="chatheader">
+    <div>
+    <div id="topicTitle">
+      # {{topicName}}
+    </div>
+    <div id="headerbuttonleft">
+        <button class="headerButton"><i class="far fa-star"></i></button>
+        <button class="headerButton"><i class="far fa-user"></i></button>
+        <button class="headerButton"><i class="fas fa-thumbtack"></i></button>
+    </div>
+    </div>
+    <div id="chatheader-right">
+      <button><i class="fas fa-info-circle"></i></button>
+    </div>
   </div>
-  <div *ngIf="visState | async as vis">
-    <li *ngFor="let talk of vis.talks[topicId]">
-      {{talk}}
-    </li>
+  <div id="mainContainerContainer">
+  <div id="mainContainer">
+    <div id="maincon" *ngIf="visState | async as vis">
+      <div id="main">
+        <ul>
+        <li *ngFor="let talk of vis.talks[topicId]">
+          <div class="chatContainer">
+            <img src="assets/slackIcon.png">
+            <div class="chatContainermain">
+              <div id="talkUsername">
+                {{talk.name}}
+              </div>
+              <div>
+                {{talk.talk}}
+              </div>
+            </div>
+          </div>
+        </li>
+        </ul>
+      </div>
+      <div id="inputContainer">
+        <div id="chatInputContainer">
+          <button>+</button>
+          <input  #box (keyup.enter)="onEnter(box.value)" type="text" class="chatInput">
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
   </div>
 
 
-<div>
-  <div id="chatInputContainer">
-    <button>+</button>
-    <input  #box (keyup.enter)="onEnter(box.value)" type="text" class="chatInput">
-  </div>
-</div>
 
 </div>

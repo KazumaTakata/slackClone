@@ -3,5 +3,5 @@ export interface visState {
   topicId: string;
   topicList: any[];
   talks: object;
-  user: object;
+  user: any;
 }
