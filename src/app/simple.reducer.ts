@@ -38,6 +38,8 @@ export function simpleReducer(state: visState = initState , action: Action){
       return newState(state, {talks: obj1} )
     case "ACTIVETOPIC":
       return newState(state, {topicId: action.payload.topicId})
+    case "SETUSER":
+      return newState(state, {user: {name: action.payload.userName, profile:"" }})
 
     default:
       return state

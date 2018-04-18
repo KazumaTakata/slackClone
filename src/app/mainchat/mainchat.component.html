@@ -1,3 +1,5 @@
+<app-sidebar></app-sidebar>
+
 <div id=mainchatContainer>
   <div id="chatheader">
     <div>
@@ -11,22 +13,22 @@
     </div>
     </div>
     <div id="chatheader-right">
-      <button><i class="fas fa-info-circle"></i></button>
+      <button (click)="gotoDetail()"><i class="fas fa-info-circle"></i></button>
     </div>
   </div>
   <div id="mainContainerContainer">
   <div id="mainContainer">
-    <div id="maincon" *ngIf="visState | async as vis">
+    <div id="maincon">
       <div id="main">
         <ul>
-        <li *ngFor="let talk of vis.talks[topicId]">
+        <li *ngFor="let talk of talks | async">
           <div class="chatContainer">
             <img src="assets/slackIcon.png">
             <div class="chatContainermain">
               <div id="talkUsername">
-                {{talk.name}}
+                {{talk.userName}}
               </div>
-              <div>
+              <div id="talkContainer">
                 {{talk.talk}}
               </div>
             </div>

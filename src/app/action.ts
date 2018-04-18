@@ -16,6 +16,11 @@ export class activeTopic implements Action {
   constructor(public payload: any) {}
 }
 
+export class setUser implements Action {
+  type= "SETUSER";
+  constructor(public payload: any) {}
+}
+
 
 
 export type All = addTopic

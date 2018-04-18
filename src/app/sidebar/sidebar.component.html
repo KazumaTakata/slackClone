@@ -14,10 +14,10 @@
         Channels
         <button id="addtopicbutton" (click)="sendMessageToParent()">+</button>
       </div>
-      <div *ngIf="visState | async as vis">
+      <div *ngIf="topics | async as topicsAsync">
       <ul>
-        <li *ngFor="let topic of vis.topicList">
-          <a [routerLink]="topic.id" (click)="anchorClick(topic.id)"  routerLinkActive="active"># {{topic.name}}</a>
+        <li (click)="anchorClick(topic.id)" *ngFor="let topic of topicsAsync">
+          # {{topic.name}}
         </li>
       </ul>
       </div>

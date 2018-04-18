@@ -37,15 +37,22 @@ li{
 }
 
 #main{
-  height: calc(100% - 80px);
+  height: calc(100% - 100px);
+  overflow: scroll;
+  margin: 10px;
 }
 
 #inputContainer{
   height: 80px;
 }
+#talkContainer{
+  margin-right: 20px;
+}
 
 .chatContainer{
   display: flex;
+  word-break:break-all;
+
 }
 img{
   height: 30px;
@@ -101,6 +108,7 @@ button:hover{
 #chatInputContainer{
   display: flex;
   margin: auto;
+  margin-top: 10px;
   width: 80%;
   /* position: absolute; */
   bottom: 40px;

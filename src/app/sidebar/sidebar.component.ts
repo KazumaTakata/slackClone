@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { visState } from "../visState.module"
 import { Observable } from "rxjs/Observable";
 import * as Actions from "../action"
+import { AngularFirestore } from "angularfire2/firestore"
+import { Router } from '@angular/router';
 
 interface AppState {
   visState: visState;
@@ -17,12 +19,21 @@ interface AppState {
 })
 export class SidebarComponent implements OnInit {
 
-  topics = TOPICS
+  // topics = TOPICS
   visState :Observable<visState>
   message: string = "hello"
+  topics: Observable<any>;
 
-  constructor(private store: Store<AppState>) {
-    this.visState = this.store.select('visState')
+  constructor(private store: Store<AppState>, private afs: AngularFirestore, private router: Router) {
+    // this.visState = this.store.select('visState')
+
+  //   this.afs.doc("talks/sports").valueChanges().subscribe(d=>{
+  //     console.log(d)
+  // })
+
+    this.topics = this.afs.collection("topics").valueChanges()
+
+
   }
 
   ngOnInit() {
@@ -33,7 +44,8 @@ export class SidebarComponent implements OnInit {
   }
 
   anchorClick(topicId){
-    this.store.dispatch(new Actions.activeTopic({topicId: topicId}))
+    // this.store.dispatch(new Actions.activeTopic({topicId: topicId}))
+    this.router.navigate(['/', topicId])
   }
 
 }

@@ -1,0 +1,51 @@
+#container{
+  height: 100vh;
+  background:#f9f9f9
+}
+img{
+  height: 30px;
+  width: 30px;
+  position: relative;
+  top: 5px;
+  padding: 10px;
+}
+label{
+  position: relative;
+  top: -10px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+button{
+  font-size: 20px;
+  background: rgb(43, 92, 176);
+  padding: 10px;
+  color: white;
+  border: none;
+}
+
+#mainContainer{
+  position: relative;
+  height: calc(100% - 100px);
+}
+
+#loginform{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+
+}
+
+#header{
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background: white;
+  box-shadow: 1px 1px 1px rgba(48, 62, 65, 0.2);
+}

@@ -13,6 +13,8 @@ import { StoreModule } from '@ngrx/store'
 import { simpleReducer } from './simple.reducer';
 import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './detail/detail.component';
+import { SignupLoginComponent } from './signup-login/signup-login.component';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { DetailComponent } from './detail/detail.component';
     SidebarComponent,
     MainchatComponent,
     DetailComponent,
+    SignupLoginComponent,
 
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     AppRoutingModule,
     CommonModule,
     StoreModule.forRoot({visState: simpleReducer }),

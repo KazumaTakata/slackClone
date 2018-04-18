@@ -32,7 +32,7 @@ export class AppComponent {
   visState :Observable<visState>
 
   // items: Observable<any[]>;
-  constructor(private globals: Globals, private store: Store<AppState>) {
+  constructor(private globals: Globals, private store: Store<AppState>, private afs: AngularFirestore) {
   this.title = globals.role
   this.visState = this.store.select('visState')
   }
@@ -43,7 +43,10 @@ export class AppComponent {
   }
 
   addTopic(){
-    this.store.dispatch(new Actions.addTopic({name:this.topicName, id: guid(), description: this.topicDescription}))
+    let topicId = guid()
+    this.store.dispatch(new Actions.addTopic({name:this.topicName, id: topicId, description: this.topicDescription}))
+    this.afs.collection("topics").add({name:this.topicName, id: topicId, description: this.topicDescription})
+    this.afs.doc(`talks/${topicId}`).set({})
   }
 
 
