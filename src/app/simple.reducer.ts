@@ -9,7 +9,7 @@ const initState: visState = {
   topicList: [{ name:"sport", id: 32}],
   talks: {},
   user: { name: "takata", profile: "" },
-  topicId: ""
+  topic: {id: "", name:""}
 }
 
 
@@ -37,7 +37,7 @@ export function simpleReducer(state: visState = initState , action: Action){
       obj1[action.payload.id] = [...talks, {talk:action.payload.talk, name: action.payload.userName}]
       return newState(state, {talks: obj1} )
     case "ACTIVETOPIC":
-      return newState(state, {topicId: action.payload.topicId})
+      return newState(state, {topic: {id: action.payload.topicId, name: action.payload.topicName}})
     case "SETUSER":
       return newState(state, {user: {name: action.payload.userName, profile:"" }})
 

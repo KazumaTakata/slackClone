@@ -1,14 +1,84 @@
 #detailContainer{
-  width: 200px;
+  width: 300px;
   height: 100%;
   border-left: 1px solid #a0a0a2;
 }
 
+#aboutContainer{
+  margin-left: 10px;
+}
+
 .detailItem{
-  outline: 1px solid black;
+  outline: 1px solid #a0a0a2;
+  /* min-height: 70px; */
+  line-height: 70px;
   height: 70px;
+  transition: height .2s ease-out;
+  overflow: hidden;
+  font-size: 20px;
+  color: #626265;
+  position:relative;
 }
 
 .detailItem:hover{
   height: 200px;
+}
+
+.detailItemAbout{
+  outline: 1px solid #a0a0a2;
+  /* min-height: 70px; */
+  line-height: 70px;
+  height: 70px;
+  transition: height .2s ease-out;
+  overflow: hidden;
+  font-size: 20px;
+  color: #626265;
+  position:relative;
+}
+
+
+
+#closeDetailButton{
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+}
+
+#aboutText{
+  font-weight: 900;
+}
+
+#detailhidden{
+  font-size: 16px;
+  margin: 20px;
+}
+
+#detailIcon{
+  color: rgba(54, 45, 51, 0.75);
+  margin: 0 10px;
+}
+#pinIcon{
+  margin: 0 10px;
+  color:#e99579;
+}
+#memberIcon{
+  color: #76b587;
+  margin: 0 10px;
+}
+
+#starIcon{
+  color: #78b3e3;
+  margin: 0 10px;
+}
+
+#detailpurpose{
+  line-height: normal;
+  font-weight: 900;
+}
+
+#detailpurposecontent{
+  line-height: normal;
 }

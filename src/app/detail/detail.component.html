@@ -1,9 +1,24 @@
 <div id="detailContainer">
- <div class="detailItem">
-   about
- <button (click)="backClicked()" type="button" name="button"></button>
+ <div class="detailItemAbout">
+   <div id="aboutContainer">
+    <div id="aboutText">
+   About &nbsp; # {{topicName}}
+   </div>
+ <button id="closeDetailButton" (click)="backClicked()" type="button" name="button">X</button>
  </div>
- <div class="detailItem">ChannelDetail</div>
- <div class="detailItem">Highlight</div>
- <div class="detailItem">Pinned Item</div>
+ </div>
+ <div (click)="detailClick()" class="detailItem">
+    <i id="detailIcon" class="fas fa-info-circle"></i> ChannelDetail
+    <div id=detailhidden>
+      <div id="detailpurpose">
+        purpose
+      </div>
+      <div id="detailpurposecontent">
+        This channel is for workspace-wide communication and announcements. All members are in this channel.
+      </div>
+    </div>
+ </div>
+ <div class="detailItem"><i id="starIcon" class="far fa-star"></i>Starred</div>
+ <div class="detailItem"><i id="pinIcon" class="fas fa-thumbtack"></i>Pinned Item</div>
+ <div class="detailItem"><i id="memberIcon" class="far fa-user"></i>Member</div>
 </div>

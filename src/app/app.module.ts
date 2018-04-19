@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './detail/detail.component';
 import { SignupLoginComponent } from './signup-login/signup-login.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     AppRoutingModule,
     CommonModule,
     StoreModule.forRoot({visState: simpleReducer }),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [Globals],
   bootstrap: [AppComponent]

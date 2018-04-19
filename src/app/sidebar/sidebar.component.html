@@ -16,7 +16,7 @@
       </div>
       <div *ngIf="topics | async as topicsAsync">
       <ul>
-        <li (click)="anchorClick(topic.id)" *ngFor="let topic of topicsAsync">
+        <li (click)="anchorClick(topic.id, topic.name)" *ngFor="let topic of topicsAsync">
           # {{topic.name}}
         </li>
       </ul>

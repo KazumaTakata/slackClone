@@ -23,6 +23,7 @@ export class SidebarComponent implements OnInit {
   visState :Observable<visState>
   message: string = "hello"
   topics: Observable<any>;
+  topicData: any;
 
   constructor(private store: Store<AppState>, private afs: AngularFirestore, private router: Router) {
     // this.visState = this.store.select('visState')
@@ -32,7 +33,9 @@ export class SidebarComponent implements OnInit {
   // })
 
     this.topics = this.afs.collection("topics").valueChanges()
-
+    // this.topics.subscribe(d=>{
+    //   this.topicData = d
+    // })
 
   }
 
@@ -43,8 +46,9 @@ export class SidebarComponent implements OnInit {
     this.store.dispatch({type: 'OPEN'})
   }
 
-  anchorClick(topicId){
-    // this.store.dispatch(new Actions.activeTopic({topicId: topicId}))
+  anchorClick(topicId, topicName){
+    this.store.dispatch(new Actions.activeTopic({topicId: topicId, topicName: topicName}))
+
     this.router.navigate(['/', topicId])
   }
 
