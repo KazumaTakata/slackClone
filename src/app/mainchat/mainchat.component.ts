@@ -24,6 +24,8 @@ export class MainchatComponent implements OnInit {
   topicName: string;
   userName: string;
   talks: Observable<any>;
+  emojiContainerStyle: object;
+  activeChat: any;
 
   visState :Observable<visState>
 
@@ -40,6 +42,7 @@ export class MainchatComponent implements OnInit {
       // }
       this.userName = d.user.name
     })
+    this.emojiContainerStyle = { top: '0px' , left: '0px', visibility: "hidden" }
   }
   gotoDetail(){
     console.log("detail")
@@ -49,7 +52,7 @@ export class MainchatComponent implements OnInit {
   onEnter(value: string) {
      console.log(value)
      // this.store.dispatch(new Actions.addChat({id: this.topicId ,talk: value, userName: this.userName}))
-     this.afs.collection(`talks/${this.topicId}/talk`).add({id: this.topicId ,talk: value, userName: this.userName, createdAt: firebase.firestore.FieldValue.serverTimestamp()})
+     this.afs.collection(`talks/${this.topicId}/talk`).add({id: this.topicId ,talk: value, userName: this.userName, createdAt: firebase.firestore.FieldValue.serverTimestamp(), star: 0, pin: false, emoji:{happy: 0, smiling: 0, sad: 0, confused: 0, mad: 0}})
    }
 
   ngOnInit() {
@@ -58,7 +61,13 @@ export class MainchatComponent implements OnInit {
        console.log(params['topicId'])
        this.topicId = params["topicId"]
        if (this.topicId !="default"){
-       this.talks = this.afs.collection(`talks/${this.topicId}/talk`, ref => ref.orderBy("createdAt")).valueChanges()
+       this.talks = this.afs.collection(`talks/${this.topicId}/talk`, ref => ref.orderBy("createdAt")).snapshotChanges().map(actions => {
+      return actions.map(action => {
+        const data = action.payload.doc.data() ;
+        const documentId = action.payload.doc.id;
+        return { documentId, ...data };
+      });
+    });
        // In a real app: dispatch action to load the details here.
 
         let tmpAfs: any = this.afs.collection("topics").valueChanges()
@@ -66,7 +75,39 @@ export class MainchatComponent implements OnInit {
       }
 
     });
+  }
 
+  emojiPopup(e, obj) {
+    e.stopPropagation()
+    let posx = (e.clientX - 100 ) + 'px'
+    let posy = (e.clientY - 120 ) + 'px'
+    console.log(posy, posx)
+    this.emojiContainerStyle = { top: posy , left: posx, visibility: "visible" }
+    this.activeChat = obj
+  }
+
+  emojiClick(e, kind){
+    // e.stopPropagation()
+    console.log(kind)
+    let updateObj = {emoji: this.activeChat.emoji}
+    updateObj.emoji[kind] = this.activeChat.emoji[kind] + 1
+    this.emojiContainerStyle = { visibility: "hidden" }
+    this.afs.collection(`talks/${this.topicId}/talk`, ref => ref.orderBy("createdAt")).doc(this.activeChat.documentId).update(updateObj)
+  }
+
+  bodyClick(){
+    console.log("body click")
+    this.emojiContainerStyle = { visibility: "hidden" }
+
+  }
+
+  starClick(obj){
+    console.log(obj.documentId)
+    this.afs.collection(`talks/${this.topicId}/talk`, ref => ref.orderBy("createdAt")).doc(obj.documentId).update({star: obj.star + 1})
+  }
+  pinClick(obj){
+    console.log(obj.documentId)
+    this.afs.collection(`talks/${this.topicId}/talk`, ref => ref.orderBy("createdAt")).doc(obj.documentId).update({pin:  !obj.pin})
   }
 
 }

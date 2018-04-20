@@ -1,6 +1,6 @@
-<app-sidebar></app-sidebar>
+<app-sidebar (click)="bodyClick()"></app-sidebar>
 
-<div id=mainchatContainer>
+<div (click)="bodyClick()" id=mainchatContainer>
   <div id="chatheader">
     <div>
     <div id="topicTitle">
@@ -22,7 +22,10 @@
     <div id="maincon">
       <div id="main">
         <ul>
-        <li *ngFor="let talk of talks | async">
+        <li [ngStyle]="{'background': talk.star>0 ? '#fffaec' : 'white' }" class="chatList" *ngFor="let talk of talks | async; let i=index">
+           <div *ngIf="talk.star > 0" class="starComment">{{talk.star}}<i class="fas fa-star star"></i> is added </div>
+           <div *ngIf="talk.pin" class="starComment"><i class="fas fa-thumbtack pin"></i> Pinned</div>
+          <div class="chatpopupMenu"><button class="popupButton" (click)="emojiPopup($event, talk)"><i class="far fa-smile"></i></button><button (click)="starClick(talk)" class="popupButton"><i class="far fa-star"></i></button><button (click)="pinClick(talk)" class="popupButton" id="lastbutton"><i class="fas fa-thumbtack"></i></button></div>
           <div class="chatContainer">
             <img src="assets/slackIcon.png">
             <div class="chatContainermain">
@@ -33,6 +36,13 @@
                 {{talk.talk}}
               </div>
             </div>
+          </div>
+          <div class="emojiChatContainer">
+            <div *ngIf="talk.emoji.happy > 0" class="emojiComment"><img class="chatEmoji" src="assets/happy.svg" />{{talk.emoji.happy}}</div>
+            <div *ngIf="talk.emoji.smiling > 0" class="emojiComment"><img class="chatEmoji" src="assets/smiling.svg" />{{talk.emoji.smiling}}</div>
+            <div *ngIf="talk.emoji.mad > 0" class="emojiComment"><img class="chatEmoji" src="assets/mad.svg" />{{talk.emoji.mad}}</div>
+            <div *ngIf="talk.emoji.sad > 0" class="emojiComment"><img class="chatEmoji" src="assets/sad.svg" />{{talk.emoji.sad}}</div>
+            <div *ngIf="talk.emoji.confused > 0" class="emojiComment"><img class="chatEmoji" src="assets/confused.svg" />{{talk.emoji.confused}}</div>
           </div>
         </li>
         </ul>
@@ -48,7 +58,15 @@
   </div>
 
   </div>
+</div>
 
 
-
+<div [ngStyle]="emojiContainerStyle" id="emojiContainer">
+  <div id="emojigroup">
+    <img (click)="emojiClick($event, 'happy')" src="assets/happy.svg" />
+    <img (click)="emojiClick($event, 'sad')" src="assets/sad.svg" />
+    <img (click)="emojiClick($event, 'confused')" src="assets/confused.svg" />
+    <img (click)="emojiClick($event, 'smiling')" src="assets/smiling.svg" />
+    <img (click)="emojiClick($event, 'mad')" src="assets/mad.svg" />
+  </div>
 </div>

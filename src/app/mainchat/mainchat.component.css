@@ -83,6 +83,11 @@ img{
   border-radius: 3px;
 }
 
+.chatEmoji{
+  height: 15px;
+  width: 15px;
+}
+
 .chatContainermain{
   margin-left: 10px;
 }
@@ -129,6 +134,88 @@ button{
   width: 90%;
   border-left: 3px solid #a0a0a2;
   font-size: 30px;
+}
+
+.chatList:hover{
+  background: rgba(171, 196, 203, .1);
+  position: relative;
+}
+
+.popupButton{
+  font-size: 15px;
+  border-right: 1px solid rgba(171, 196, 203, 1);
+}
+
+.popupButton:hover{
+  color: rgb(37, 94, 147);
+}
+
+#emojiContainer{
+  position: absolute;
+  height: 100px;
+  width: 200px;
+  border:  1px solid rgba(171, 196, 203, .1);
+  box-shadow: 1px 1px 1px rgba(171, 196, 203, .6), -1px -1px 1px rgba(171, 196, 203, .6);
+  border-radius: 10px;
+  background: white;
+}
+
+#emojigroup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#lastbutton{
+  border: none;
+}
+
+
+.chatList:hover > .chatpopupMenu{
+  visibility: visible;
+}
+
+.chatpopupMenu{
+  /* background: black; */
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 20px;
+  width: 90px;
+  position: absolute;
+  right: 50px;
+  top: 0px;
+  box-shadow: 1px 1px 1px black;
+  visibility: hidden;
+}
+
+.star{
+  color: #f7cd46;
+}
+
+.pin{
+  color: #e16940;
+}
+
+.emojiChatContainer{
+  display: flex;
+}
+
+.starComment{
+  font-size: 13px;
+  color: rgb(105, 130, 135);
+  margin-bottom: 3px;
+}
+
+.emojiComment{
+  font-size: 13px;
+  color: rgb(105, 130, 135);
+  margin-bottom: 3px;
+  border: 1px solid rgb(105, 130, 135);
+  border-radius: 3px;
+  padding: 3px;
+  margin: 2px;
+  box-shadow: 1px 1px 1px rgb(105, 130, 135);
 }
 
 #chatInputContainer{
